@@ -1,0 +1,25 @@
+{
+  "name": "ac_ctrl_test",
+  "version": "0.0.1",
+  "description": "access control middleware",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.14.0",
+    "http": "^0.0.0",
+    "lodash": "^4.13.1",
+    "method-override": "^2.3.6",
+    "mongoose": "^4.5.3",
+    "morgan": "^1.7.0",
+    "path": "^0.12.7",
+    "routes": "^2.1.0",
+    "serve-favicon": "^2.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
