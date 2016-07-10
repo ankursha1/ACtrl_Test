@@ -1,5 +1,5 @@
 var express = require('express'),
-	morgan = require('morgan'),
+	logger = require('./util/logger'),
 	bodyParser = require('body-parser'),
 	cookieParser = require('cookie-parser'),
 	methodOverride = require('method-override'),
@@ -9,8 +9,8 @@ var express = require('express'),
 var server = function() {
 	var app = express(),
 		__dirname = ".";
-
-	app.use(morgan('dev'));                                         
+	logger.debug('Starting setting up server.....')
+	
     app.use(bodyParser.urlencoded({'extended':'false'}));            
     app.use(bodyParser.json());
     app.use(methodOverride());
@@ -25,7 +25,7 @@ var server = function() {
 
 	approutes(app);
     app.use('/', router);
-
+	logger.debug('Finished setting up server.....')
 
     return app;
 }
