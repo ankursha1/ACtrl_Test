@@ -1,10 +1,11 @@
 var morgan = require('morgan'),
 	express = require('express'),
-	server = require('./AccessControlApp/server');
+	server = require('./AccessControlApp/server'),
+	envconst = require('./AccessControlApp/env/constants');
 
 var app = server();
 
-app.listen(3000, function() {
-  console.log('Express server listening on port ' + 3000);
+app.listen(envconst.APP_PORT, function() {
+  console.log('Express server listening on port ' + envconst.APP_PORT);
 });
 

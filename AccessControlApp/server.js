@@ -7,20 +7,25 @@ var express = require('express'),
 	approutes = require('./approutes/routes');
 
 var server = function() {
-	var app = express();
+	var app = express(),
+		__dirname = ".";
+
 	app.use(morgan('dev'));                                         
-    app.use(bodyParser.urlencoded({'extended':'true'}));            
+    app.use(bodyParser.urlencoded({'extended':'false'}));            
     app.use(bodyParser.json());
     app.use(methodOverride());
 	app.use(cookieParser());
-	
+	app.use(express.static(path.join(__dirname, 'public')));
+
+    
     var router = express.Router();
 	router.get('/', function( req, res, next ) {
-    	res.send("Hello from server!!");
+    	res.sendfile('/public/index.html');
     });
 
 	approutes(app);
     app.use('/', router);
+
 
     return app;
 }
