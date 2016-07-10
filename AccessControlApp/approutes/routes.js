@@ -1,5 +1,5 @@
 var express = require('express'),
-	users = require('../controller/users');
+	users = require('../controllers/users');
 
 var routes = function(app) {
 	app.use('/users', users());
