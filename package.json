@@ -4,6 +4,9 @@
   "description": "access control middleware",
   "main": "index.js",
   "dependencies": {
+    "angular": "^1.5.7",
+    "angular-route": "^1.5.7",
+    "angular-route-segment": "^1.5.1",
     "body-parser": "^1.15.2",
     "cookie-parser": "^1.4.3",
     "express": "^4.14.0",
@@ -12,7 +15,9 @@
     "method-override": "^2.3.6",
     "mongoose": "^4.5.3",
     "path": "^0.12.7",
+    "pg": "^6.0.2",
     "routes": "^2.1.0",
+    "sequelize": "^3.23.4",
     "serve-favicon": "^2.3.0",
     "winston": "^2.2.0"
   },

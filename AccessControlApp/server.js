@@ -4,7 +4,9 @@ var express = require('express'),
 	cookieParser = require('cookie-parser'),
 	methodOverride = require('method-override'),
 	path = require('path'),
-	approutes = require('./approutes/routes');
+	approutes = require('./approutes/routes'),
+	envconst = require('./env/constants'),
+	dbconn = require('./db/dbconn.js');
 
 var server = function() {
 	var app = express(),
@@ -25,7 +27,10 @@ var server = function() {
 
 	approutes(app);
     app.use('/', router);
-	logger.debug('Finished setting up server.....')
+	logger.info('Intializing db connection...');
+	dbconn(envconst.DB_INFO);
+
+	logger.info('Finished setting up server.....')
 
     return app;
 }

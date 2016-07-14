@@ -7,6 +7,6 @@ logger.info('Initializing app...')
 var app = server();
 
 app.listen(envconst.APP_PORT, function() {
-  console.log('Express server listening on port ' + envconst.APP_PORT);
+  logger.info('Express server listening on port ' + envconst.APP_PORT);
 });
 
