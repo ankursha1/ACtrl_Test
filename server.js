@@ -10,16 +10,11 @@ var express = require('express'),
 
 var server = function() {
 	var app = express();
-	// var __dirname = '..';
 	logger.debug('Starting setting up server - ' + __dirname);
 	app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({'extended':'false'}));
     app.use(methodOverride());
 	app.use(cookieParser());
-    
-	// var pa = path.join(__dirname, '..');
-	// logger.debug('Root path '+ pa);
-    
     var router = express.Router();
     approutes(app);
 	app.use('/', router);
