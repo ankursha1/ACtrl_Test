@@ -9,24 +9,29 @@ var express = require('express'),
 	dbconn = require('./db/dbconn.js');
 
 var server = function() {
-	var app = express(),
-		__dirname = ".";
-	logger.debug('Starting setting up server.....')
-	
-    app.use(bodyParser.urlencoded({'extended':'false'}));            
-    app.use(bodyParser.json());
+	var app = express();
+	// var __dirname = '..';
+	logger.debug('Starting setting up server - ' + __dirname);
+	app.use(bodyParser.json());
+    app.use(bodyParser.urlencoded({'extended':'false'}));
     app.use(methodOverride());
 	app.use(cookieParser());
-	app.use(express.static(path.join(__dirname, 'public')));
-
+    
+	// var pa = path.join(__dirname, '..');
+	// logger.debug('Root path '+ pa);
     
     var router = express.Router();
-	router.get('/', function( req, res, next ) {
-    	res.sendfile('/public/index.html');
-    });
+    approutes(app);
+	app.use('/', router);
+	
+	app.use(express.static(path.join(__dirname, 'public'))); 
 
-	approutes(app);
-    app.use('/', router);
+    app.get('/', function( req, res, next ) {
+    	res.sendFile(__dirname +'/public/index.html');
+    });
+    
+
+    
 	logger.info('Intializing db connection...');
 	dbconn(envconst.DB_INFO);
 

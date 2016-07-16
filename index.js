@@ -1,6 +1,6 @@
 var logger = require('./AccessControlApp/util/logger'),
 	express = require('express'),
-	server = require('./AccessControlApp/server'),
+	server = require('./server'),
 	envconst = require('./AccessControlApp/env/constants');
 
 logger.info('Initializing app...')
