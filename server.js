@@ -7,10 +7,10 @@ path = require('path'),
 approutes = require('./AccessControlApp/approutes/routes'),
 envconst = require('./AccessControlApp/env/constants'),
 dbconn = require('./AccessControlApp/db/dbconn.js');
-
 var server = function() {
 	var app = express();
-	logger.debug('Starting setting up server - ' + __dirname);
+	app.set('APP_SECRET', envconst.APP_SECRET);
+	logger.debug('Starting setting up server - ' + envconst.APP_SECRET);
 	app.use(bodyParser.json());
 	app.use(bodyParser.urlencoded({'extended':'false'}));
 	app.use(methodOverride());
@@ -24,10 +24,9 @@ var server = function() {
 	app.get('/', function( req, res, next ) {
 		res.sendFile(__dirname +'/public/index.html');
 	});
-	
+
 	logger.info('Intializing db connection...');
 	dbconn(envconst.DB_INFO);
-
 	logger.info('Finished setting up server.....')
 
 	return app;

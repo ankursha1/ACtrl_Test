@@ -7,21 +7,25 @@
 </title>
 	<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css" />
 </head>
-<body class="container">
-		<nav class="navbar navbar-default" >
-		    <!-- <div class="navbar-center navbar-brand">
-		       <span>Test Home</span> 
-		    </div> -->
-		    <div class="navbar-brand text-center" style="float:none;">APP NAME</div>
-		    <!-- <div>
-			    <ul class="nav navbar-nav">
-			        <li><a ui-sref="session">Login</a></li>
-			        <li><a ui-sref="about">About</a></li>
+<body ng-app='RootApp'>
+
+		<h3 align='center'>Demo APP</h3>
+		<div class='container'>
+			<nav class='navbar navbar-default' role='navigation'>
+			    <!--div class='navbar-header'>
+			        <a class='navbar-brand' ui-sref='#'>Demo APP</a>
+			    </div-->
+			    <ul class='nav navbar-nav'>
+			        <li><a ui-sref='session'>Home</a></li>
+			        <li><a ui-sref='about'>About</a></li>
 			    </ul>
-		    </div> -->
-		</nav>
-		<div ui-view></div>
-    
+			    <ul class='nav navbar-nav navbar-right' style='margin-right: 3px' ng-hide="isConnected">
+			        <li><a ui-sref='logout'>Logout</a></li>
+			    </ul>
+			</nav>
+			
+			<div ui-view></div>
+    	</div>
 	
 	<script src="../node_modules/angular/angular.min.js"></script>
 	<script src="../node_modules/angular-bootstrap/ui-bootstrap.min.js"></script>
@@ -36,6 +40,7 @@
 	<script src="./public/scripts/app.js"></script>
 	<script src="./public/scripts/controllers/MainController.js"></script>
 	<script src="./public/scripts/controllers/SessionController.js"></script>
+	<script src="./public/scripts/controllers/WelcomeController.js"></script>
 	<script src="./public/scripts/services/MainService.js"></script>
 	<script src="./public/scripts/services/SessionService.js"></script>
 </body>

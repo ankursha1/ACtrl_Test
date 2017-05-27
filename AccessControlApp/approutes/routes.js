@@ -1,8 +1,10 @@
 var express = require('express'),
-	users = require('../controllers/users');
+	users = require('../controllers/UserController'),
+	session = require('../controllers/SessionController');
 
 var routes = function(app) {
-	router.get('/users', users());
+	app.use('/users', users());
+	app.use('/session', session(app));
 }
 
 module.exports = routes;

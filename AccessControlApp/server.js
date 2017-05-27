@@ -6,8 +6,7 @@ var express = require('express'),
 	path = require('path'),
 	approutes = require('./approutes/routes'),
 	envconst = require('./env/constants'),
-	dbconn = require('./db/dbconn.js');
-
+	// dbconn = require('./db/dbconn.js');
 var server = function() {
 	var app = express();
 	// var __dirname = '..';
@@ -21,7 +20,7 @@ var server = function() {
 	// logger.debug('Root path '+ pa);
     
     var router = express.Router();
-    approutes(app);
+    approutes(router);
 	app.use('/', router);
 	
 	app.use(express.static(path.join(__dirname, 'public'))); 
@@ -33,7 +32,7 @@ var server = function() {
 
     
 	logger.info('Intializing db connection...');
-	dbconn(envconst.DB_INFO);
+	// dbconn(envconst.DB_INFO);
 
 	logger.info('Finished setting up server.....')
 

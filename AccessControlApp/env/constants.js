@@ -6,6 +6,7 @@ module.exports = {
   	'dbuser' : 'postgres',
   	'dbpwd'	 : 'password',
   	'host'	 : 'localhost'
-  }
+  },
+  APP_SECRET: 	'thisisappsecret'
 };
 

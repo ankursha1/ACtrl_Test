@@ -1,0 +1,21 @@
+{ 
+   "development": { 
+     "dialect": "postgres", 
+     "storage": "./db.development.postgres" 
+  }, 
+   "test": { 
+     "username": "postgres", 
+     "password": "password", 
+     "database": "APP_DB", 
+     "host": "127.0.0.1", 
+     "dialect": "postgres" 
+   }, 
+   "production": { 
+     "username": "postgres", 
+     "password": "password", 
+     "database": "APP_DB", 
+     "host": "127.0.0.1", 
+     "dialect": "postgres" 
+   },
+   "secret":"thisissecret"
+} 

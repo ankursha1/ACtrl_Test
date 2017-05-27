@@ -1,9 +1,15 @@
-Services.service('SessionService', function() {
+Services.service('SessionService', ['wsservice', function(WsService) {
 
-
+	this.authToken ='undefined';
 	this.login = function(data) {
-		alert('Hello!! Welcome to SessionService.');
-		wsservice.wspost(data);
+		return WsService.wspost('/session', data);
 	}
 
-});
+	this.logout = function(data) {
+		return WsService.wsdelete('/session', data);
+	}
+
+	this.setAuthToken = function(token){
+		this.authToken = token;
+	}
+}]);
